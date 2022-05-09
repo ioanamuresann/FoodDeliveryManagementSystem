@@ -162,12 +162,21 @@ public class BaseProduct extends MenuItem{
                 ", price=" + price +
                 '}';
     }
-
+//pentru a verifica ce produse au acelasi tilu
     public static <T> Predicate<T> sameProductTitle(Function<? super T, ?> keyExtractor) {
         Set<Object> objectSet;
         objectSet = ConcurrentHashMap.newKeySet();
         return object -> objectSet.add(keyExtractor.apply(object));
     }
+    //chiar daca sunt doua produse cu acelasi titlu,sa aiba pret diferit(poate e de o calitate mai buna)
+    /*
+    public static <T> Predicate<T> produseCuAcelasiPret(Function<? super T, ?> keyExtractor) {
+        Set<Object> objectSet;
+        objectSet = ConcurrentHashMap.newKeySet();
+        return object -> objectSet.add(keyExtractor.apply(object));
+    }
+
+     */
 
     public Integer getNr() {
         return nrOfAppInOrders;

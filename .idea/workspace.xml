@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad2c243d-dbf1-4534-ba4f-379dc294fa8b" name="Changes" comment="initial" />
+    <list default="true" id="ad2c243d-dbf1-4534-ba4f-379dc294fa8b" name="Changes" comment="initial">
+      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bill.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bill.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery.ser" beforeDir="false" afterPath="$PROJECT_DIR$/delivery.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products.ser" beforeDir="false" afterPath="$PROJECT_DIR$/products.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/report1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/report2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/report3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/report4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BusinessLogicLayer/BaseProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BusinessLogicLayer/BaseProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BusinessLogicLayer/DeliveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BusinessLogicLayer/DeliveryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataAccessLayer/Serializator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataAccessLayer/Serializator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ClientView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ClientView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/EmployeeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/OrdersView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/OrdersView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/ResultView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/ResultView.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +106,10 @@
       <workItem from="1652004900860" duration="6395000" />
       <workItem from="1652013021879" duration="199000" />
       <workItem from="1652080579189" duration="13599000" />
-      <workItem from="1652096217145" duration="299000" />
+      <workItem from="1652096217145" duration="680000" />
+      <workItem from="1652096923690" duration="3311000" />
+      <workItem from="1652104020063" duration="3737000" />
+      <workItem from="1652128899824" duration="2679000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1652096474755</created>

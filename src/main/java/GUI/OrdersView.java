@@ -16,7 +16,7 @@ public class OrdersView implements ActionListener {
     DeliveryService delivery=new DeliveryService();
     JButton inapoi = new JButton("Back");
 
-    public OrdersView() {
+    public OrdersView(String mesaj) {
         inapoi.setBounds(100, 260, 200, 30);
         inapoi.addActionListener(this);
         frame.add(inapoi);

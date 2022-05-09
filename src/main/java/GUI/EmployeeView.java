@@ -65,7 +65,7 @@ public class EmployeeView extends JFrame implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        JOptionPane.showMessageDialog(null, "New Order!");
+        JOptionPane.showMessageDialog(null, "S-a creat o noua comanda!");
     }
 
 }

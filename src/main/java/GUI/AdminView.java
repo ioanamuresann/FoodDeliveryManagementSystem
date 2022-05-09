@@ -241,9 +241,9 @@ public class AdminView extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==generateReport){
-                    DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                    LocalDateTime h1 = LocalDateTime.parse(hour1Text.getText(), format);
-                    LocalDateTime h2 = LocalDateTime.parse(hour2Text.getText(), format);
+                    DateTimeFormatter formatBun = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                    LocalDateTime h1 = LocalDateTime.parse(hour1Text.getText(), formatBun);
+                    LocalDateTime h2 = LocalDateTime.parse(hour2Text.getText(), formatBun);
                     deliveryService.generateReport1(h1, h2);
                     JOptionPane.showMessageDialog(null,"DONE!");
                 }

@@ -80,7 +80,7 @@ public class DeliveryService extends Observable implements IDeliveryServiceProce
           e.printStackTrace();
        }
        try {
-          file.write("Comenzi cuprinse intre ora "+ inceput.getHour()+" si ora "+ sfarsit.getHour()+"\n");
+          file.write("Comenzi cuprinse intre ora "+ inceput.getHour()+" si ora "+ sfarsit.getHour()+":"+sfarsit.getMinute()+"\n");
        } catch (IOException e) {
           e.printStackTrace();
        }
@@ -159,25 +159,48 @@ public class DeliveryService extends Observable implements IDeliveryServiceProce
     @Override
     public void generateReport3(Integer nrOrders, Integer sum) {
         assert this.menuHash.size()>0;
-        FileWriter fileWriter= null;
+        FileWriter file = null;
         try {
-            fileWriter = new FileWriter("report3.txt");
+            file = new FileWriter("report3.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
-            try{
-                fileWriter.write("Clientul   are mai mult de "+nrOrders+"\n");
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-
         try {
-            fileWriter.close();
+            file.write("Clienti care au comandat de mai mult de "+ nrOrders+" ori ,cu o suma totala mai mare de "+ sum +"\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        orderCollectionHashMap = deliverySerializator.deserializationFunction();
+        List <Order> dateOrders= orderCollectionHashMap.keySet().stream().collect(Collectors.toList());
+        List<BaseProduct> product = new ArrayList<>();
+        for(Order o: dateOrders){
+            product.addAll(orderCollectionHashMap.get(o));
+        }
+        Vector<Integer> vector=new Vector<Integer>(100);
+        int i=0;
+        int ok=1;
+        for(Order o: dateOrders)
+        {   ok=1;
+            for(int j=0;j< vector.size();j++)
+            if(vector.get(j) ==o.getClientId())
+                ok=0;
+            else vector.add(o.getClientId());
+        }
+        for (int j=0;j< vector.size();j++) {
+            try {
+                file.write("ID clienti:" + vector.get(j) + "\n");
+            } catch (IOException x) {
+                x.printStackTrace();
+            }
+        }
+        try {
+            file.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
         assert this.menuHash.size()>0;
         assert invariant();
+        assert WellFormed();
     }
 
     @Override
@@ -242,7 +265,11 @@ public class DeliveryService extends Observable implements IDeliveryServiceProce
             orderArrayList.add(order);
             orderCollectionHashMap.put(order, productsList);
             deliverySerializator.serializationFunction(orderCollectionHashMap);
+            //It indicates that this Observable object has been modified, and the hasChanged() method will now return true
             setChanged();
+            //Dacă metoda hasChanged () indică faptul că acest obiect s-a modificat, alertați toți observatorii săi și apoi apelați metoda clearChanged( ) pentru a arăta că nu s-a modificat.
+            // Pentru a actualiza() metoda, un null este trecut ca al doilea parametru.
+            notifyObservers();
         }
     }
     public void deleteProduct(String name)
@@ -299,5 +326,20 @@ public class DeliveryService extends Observable implements IDeliveryServiceProce
         JScrollPane jScrollPane = new JScrollPane();
         jScrollPane.getViewport().add(table);
         panel.add(jScrollPane);
+    }
+   public String afisareComenzi()
+    {   String rezultat=" ";
+        orderCollectionHashMap = deliverySerializator.deserializationFunction();
+        List <Order> dateOrders= orderCollectionHashMap.keySet().stream().collect(Collectors.toList());
+        List<BaseProduct> product = new ArrayList<>();
+        for(Order o: dateOrders){
+            product.addAll(orderCollectionHashMap.get(o));
+        }
+        for(Order o: dateOrders)
+        {    rezultat=rezultat+" COMANDA  " +o.toString() + "\n"+" PRODUSE ";
+            for(BaseProduct p:product)
+             rezultat=rezultat +p.toString() + "\n";
+    }
+        return rezultat;
     }
 }

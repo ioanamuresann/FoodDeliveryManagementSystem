@@ -1,7 +1,6 @@
 FACTURA:
-Id order: 58
-Id client: 135
-PRODUS: Shrimp Sates with Spiced Pistachio Chutney  Pret: 78
-PRODUS: Red Pepper Sauce  Pret: 62
+Id order: 151
+Id client: 152
+PRODUS: Coriander-Herb Spice Rub  Pret: 51
 PRODUS: Toasted Corn Crisps  Pret: 66
-Total :206
+Total :117

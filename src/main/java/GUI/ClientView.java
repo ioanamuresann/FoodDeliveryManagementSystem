@@ -42,6 +42,7 @@ public class ClientView extends JFrame{
     DefaultTableModel defaultTableModel;
     JTable jTable;
     DeliveryService deliveryService;
+    DeliveryService deliveryService2=new DeliveryService();
     JComboBox comboBox;
     List<BaseProduct> items;
     JButton  viewOrders=new JButton("View orders");
@@ -72,27 +73,39 @@ public class ClientView extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==searchProduct){
                     if(comboBox.getSelectedItem().equals("Title"))
-                    {
+                    {   String string="";
                         for (BaseProduct baseProduct:cautareDupaTitlu(titleText.getText())) {
                             System.out.println(baseProduct.toString());
+                            string=string+baseProduct.toString()+"\n";
                         }
+                        ResultView resultView=new ResultView(string);
                     }
                     else
                     {
                         if(comboBox.getSelectedItem().equals("Rating"))
-                        {for (BaseProduct baseProduct:cautareDupaRating(Float.parseFloat(ratingText.getText().toString()))) {
-                                System.out.println(baseProduct.toString());}
+                        { String string="";
+                            for (BaseProduct baseProduct:cautareDupaRating(Float.parseFloat(ratingText.getText().toString()))) {
+                                System.out.println(baseProduct.toString());
+                                string=string+baseProduct.toString()+"\n";
+                            }
+                            ResultView resultView=new ResultView(string);
                         }
                         else
                         {if(comboBox.getSelectedItem().equals("Calories"))
-                            {for (BaseProduct baseProduct:cautareDupaCalorii(Integer.parseInt(caloriesText.getText().toString()))) {
+                            {String string="";
+                                for (BaseProduct baseProduct:cautareDupaCalorii(Integer.parseInt(caloriesText.getText().toString()))) {
                                 System.out.println(baseProduct.toString());
+                                    string=string+baseProduct.toString()+"\n";
                             }
+                                ResultView resultView=new ResultView(string);
                             }
                             else
                             {if(comboBox.getSelectedItem().equals("Protein"))
-                                {for (BaseProduct baseProduct:cautareDupaProteine(Integer.parseInt(proteinText.getText().toString()))) {
-                                        System.out.println(baseProduct.toString());}
+                                {String string="";
+                                    for (BaseProduct baseProduct:cautareDupaProteine(Integer.parseInt(proteinText.getText().toString()))) {
+                                        System.out.println(baseProduct.toString());
+                                        string=string+baseProduct.toString()+"\n";}
+                                    ResultView resultView=new ResultView(string);
                                 }
                                 else
                                 {if(comboBox.getSelectedItem().equals("Fat"))
@@ -101,13 +114,21 @@ public class ClientView extends JFrame{
                                     }
                                     else
                                     {if(comboBox.getSelectedItem().equals("Sodium"))
-                                        {for (BaseProduct baseProduct:cautareDupaSodium(Integer.parseInt(sodiumText.getText().toString()))) {
-                                            System.out.println(baseProduct.toString());}
+                                        { String string="";
+                                            for (BaseProduct baseProduct:cautareDupaSodium(Integer.parseInt(sodiumText.getText().toString()))) {
+                                            System.out.println(baseProduct.toString());
+                                                string=string+baseProduct.toString()+"\n";}
+                                            ResultView resultView=new ResultView(string);
                                         }
                                         else
                                         {if(comboBox.getSelectedItem().equals("Price")) {
+                                            String string="";
                                                 for (BaseProduct baseProduct : cautareDupaPret(Integer.parseInt(priceText.getText().toString()))) {
-                                                    System.out.println(baseProduct.toString());}}}
+                                                    System.out.println(baseProduct.toString());
+                                                    string=string+baseProduct.toString()+"\n";}
+                                            ResultView resultView=new ResultView(string);
+                                        }
+                                        }
                                     }}}}}}}});
         this.add(searchProduct);
 
@@ -141,6 +162,7 @@ public class ClientView extends JFrame{
                     o.setClientId(id);
                     o.setDate( LocalDateTime.now());
                     deliveryService = new DeliveryService();
+                    //Această metodă creează un nou observator la colecția de observatori pentru un astfel de obiect, atâta timp cât nu este același cu unul care există deja.
                     deliveryService.addObserver((Observer)new EmployeeView("S-a facut o noua comanda"));
                     deliveryService.createOrder(o, prod);
                     System.out.println(o +"\nClientul a comandat: " + menuItems+"\n");
@@ -157,7 +179,8 @@ public class ClientView extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()== viewOrders){
-                  OrdersView view=new OrdersView();
+                    String scris=deliveryService2.afisareComenzi();
+                  ResultView view=new ResultView(scris);
                 }
             }
         });

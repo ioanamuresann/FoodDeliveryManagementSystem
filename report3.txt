@@ -1,1 +1,1 @@
-Clientul   are mai mult de 6
+Clienti care au comandat de mai mult de 6 ori ,cu o suma totala mai mare de 100
