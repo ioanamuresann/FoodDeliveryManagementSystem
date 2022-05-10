@@ -152,11 +152,7 @@ public class BaseProduct extends MenuItem{
 
     @Override
     public String toString() {
-        return "Product{" +
-                "title='" + title + '\'' +
-                ", rating=" + rating +
-                ", calories=" + calories +
-                ", protein=" + protein +
+        return "Product{" + "title='" + title + '\'' + ", rating=" + rating + ", calories=" + calories + ", protein=" + protein +
                 ", fat=" + fat +
                 ", sodium=" + sodium +
                 ", price=" + price +
@@ -182,9 +178,6 @@ public class BaseProduct extends MenuItem{
         return nrOfAppInOrders;
     }
 
-    public void setNrOfAppInOrders(Integer nrOfAppInOrders) {
-        this.nrOfAppInOrders = nrOfAppInOrders;
-    }
 
 
 }

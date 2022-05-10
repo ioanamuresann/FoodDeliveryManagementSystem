@@ -7,8 +7,8 @@ public class Admin implements Serializable {
     private static final long serialVersionUID = -3334572924775156124l;
     //private static final long serialVersionUID = 6529685098267757690L;
 
-    public String username;
-    public String password;
+    public String username="admin";
+    public String password="admin";
 
     public Admin(String username, String password) {
         this.username = username;

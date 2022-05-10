@@ -55,7 +55,13 @@ public class DeliveryService extends Observable implements IDeliveryServiceProce
 
     @Override
     public void editProduct(MenuItem menuItem, MenuItem newMenuItem) {
-
+        menuItem.calories= newMenuItem.calories;
+        menuItem.title= newMenuItem.title;
+        menuItem.fat= newMenuItem.fat;
+        menuItem.price= newMenuItem.price;
+        menuItem.protein= newMenuItem.protein;
+        menuItem.sodium= newMenuItem.sodium;
+        menuItem.rating= newMenuItem.rating;
     }
    public boolean invariant()
    {

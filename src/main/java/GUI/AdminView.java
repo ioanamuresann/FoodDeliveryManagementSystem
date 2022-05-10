@@ -45,9 +45,9 @@ public class AdminView extends JFrame{
     DefaultTableModel defaultTableModel= new DefaultTableModel();
     JTable jTable;
     DeliveryService service=new DeliveryService();
-    JLabel hour1=new JLabel("Hour1:");
+    JLabel hour1=new JLabel("Data1:");
     JTextField hour1Text=new JTextField();
-    JLabel hour2=new JLabel("Hour2:");
+    JLabel hour2=new JLabel("Data2:");
     JTextField hour2Text=new JTextField();
     JButton composite=new JButton("Create new products");
     DeliveryService deliveryService = new DeliveryService();
@@ -229,7 +229,14 @@ public class AdminView extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==modifyProduct){
-
+                    String prName = titleText.getText();
+                    String prRating = ratingText.getText();
+                    String prCalories = caloriesText.getText();
+                    String prProtein = proteinText.getText();
+                    String prFat = fatText.getText();
+                    String prSodium = sodiumText.getText();
+                    String prPrice = priceText.getText();
+                  //  BaseProduct baseProductSelected = items.get(jTable.convertRowIndexToModel(randuri[i]));
                 }
             }
         });
