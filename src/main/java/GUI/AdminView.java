@@ -229,6 +229,7 @@ public class AdminView extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==modifyProduct){
+                    /*
                     String prName = titleText.getText();
                     String prRating = ratingText.getText();
                     String prCalories = caloriesText.getText();
@@ -236,6 +237,8 @@ public class AdminView extends JFrame{
                     String prFat = fatText.getText();
                     String prSodium = sodiumText.getText();
                     String prPrice = priceText.getText();
+
+                     */
                   //  BaseProduct baseProductSelected = items.get(jTable.convertRowIndexToModel(randuri[i]));
                 }
             }

@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BaseProduct extends MenuItem{
+
     public String title;
     public float rating;
     public Integer calories;
@@ -43,11 +44,12 @@ public class BaseProduct extends MenuItem{
         String file;
         file = "src\\main\\java\\DataAccessLayer\\products.csv";
         List<BaseProduct> baseProductsList = null;
+        //creez o noua lista de produse de baza
         try{
             Stream<String> stream=Files.lines(Paths.get(file));
             List<BaseProduct> baseProductList=new ArrayList<>();
             stream.filter(lines -> !lines.startsWith("Title")).forEach(lines ->
-            {
+            { //parsez fiecare atribut din fisier dupa virgula
                 String[] strings = lines.split(",");
                 float rating = Float.parseFloat(strings[1]);
                 int calories = Integer.parseInt(strings[2]);
@@ -55,12 +57,15 @@ public class BaseProduct extends MenuItem{
                 int fat = Integer.parseInt(strings[4]);
                 int sodium = Integer.parseInt(strings[5]);
                 int price = Integer.parseInt(strings[6]);
+                //adaug in lista de produse,fiecare produs nou,dupa  ce il creez
                 BaseProduct product =new BaseProduct(strings[0],rating,calories,protein,fat,sodium,price);
                 baseProductList.add(product);
             });
+            //pentru a nu avea produse care se repeta,filtrez dupa titlu deoarece fiecare produs e unic dupa nume
             baseProductsList = baseProductList.stream().filter(sameProductTitle(BaseProduct::getTitle)).collect(Collectors.toList());
             FileOutputStream file2=new FileOutputStream("products.ser");
             ObjectOutputStream outFile=new ObjectOutputStream(file2);
+            //scriu liste de produse in fisier
             outFile.writeObject(baseProductsList);
             outFile.close();
             file2.close();
@@ -152,13 +157,18 @@ public class BaseProduct extends MenuItem{
 
     @Override
     public String toString() {
-        return "Product{" + "title='" + title + '\'' + ", rating=" + rating + ", calories=" + calories + ", protein=" + protein +
+        return "Product{" +
+                "title='" + title + '\'' +
+                ", rating=" + rating +
+                ", calories=" + calories +
+                ", protein=" + protein +
                 ", fat=" + fat +
                 ", sodium=" + sodium +
                 ", price=" + price +
                 '}';
     }
-//pentru a verifica ce produse au acelasi tilu
+
+    //pentru a verifica ce produse au acelasi tilu
     public static <T> Predicate<T> sameProductTitle(Function<? super T, ?> keyExtractor) {
         Set<Object> objectSet;
         objectSet = ConcurrentHashMap.newKeySet();
@@ -178,6 +188,9 @@ public class BaseProduct extends MenuItem{
         return nrOfAppInOrders;
     }
 
+    public void setNrOfAppInOrders(Integer nrOfAppInOrders) {
+        this.nrOfAppInOrders = nrOfAppInOrders;
+    }
 
 
 }

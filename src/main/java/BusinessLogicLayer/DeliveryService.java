@@ -55,6 +55,7 @@ public class DeliveryService extends Observable implements IDeliveryServiceProce
 
     @Override
     public void editProduct(MenuItem menuItem, MenuItem newMenuItem) {
+
         menuItem.calories= newMenuItem.calories;
         menuItem.title= newMenuItem.title;
         menuItem.fat= newMenuItem.fat;
@@ -62,6 +63,7 @@ public class DeliveryService extends Observable implements IDeliveryServiceProce
         menuItem.protein= newMenuItem.protein;
         menuItem.sodium= newMenuItem.sodium;
         menuItem.rating= newMenuItem.rating;
+
     }
    public boolean invariant()
    {
@@ -75,7 +77,7 @@ public class DeliveryService extends Observable implements IDeliveryServiceProce
    }
     @Override
     public void generateReport1(LocalDateTime inceput, LocalDateTime sfarsit) {
-
+       //PRE conditii
        assert this.menuHash.size()>0;
        int  h1= inceput.getHour();
        int h2= sfarsit.getHour();
@@ -90,12 +92,14 @@ public class DeliveryService extends Observable implements IDeliveryServiceProce
        } catch (IOException e) {
           e.printStackTrace();
        }
-       orderCollectionHashMap = deliverySerializator.deserializationFunction();
+       orderCollectionHashMap = deliverySerializator.deserializationFunction(); //deserializez din fiser
        List <Order> dateOrders= orderCollectionHashMap.keySet().stream().filter(e->e.getDate().getHour()>=h1 && e.getDate().getHour()<=h2).collect(Collectors.toList());
        List<BaseProduct> product = new ArrayList<>();
+       //pentru fiecare comanda,adaug fiecare produs intr-un arrayList de produse
        for(Order o: dateOrders){
           product.addAll(orderCollectionHashMap.get(o));
        }
+       //apoi,pentru fiecare comanda,scriu in fisier fiecare produs comandat
         for(Order o: dateOrders)
         {  try {
             file.write("Detalii comanda:" + o.toString() + "\n");
@@ -117,6 +121,8 @@ public class DeliveryService extends Observable implements IDeliveryServiceProce
        } catch (IOException e) {
           e.printStackTrace();
        }
+
+       //POST conditii
        assert this.menuHash.size()>0;
        assert invariant();
        assert WellFormed();

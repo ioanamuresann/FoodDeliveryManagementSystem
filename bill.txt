@@ -1,6 +1,7 @@
 FACTURA:
-Id order: 151
-Id client: 152
-PRODUS: Coriander-Herb Spice Rub  Pret: 51
-PRODUS: Toasted Corn Crisps  Pret: 66
-Total :117
+Id order: 150
+Id client: 153
+PRODUS: Cilantro-Tomato Salsa  Pret: 32
+PRODUS: The Original Three-Ingredient Rub  Pret: 47
+PRODUS: Arugula Salad with Heirloom Tomatoes and Red Onion  Pret: 21
+Total :100

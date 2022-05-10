@@ -1,1 +1,5 @@
-Comenzi cuprinse intre ora 12 si ora 13:0
+Comenzi cuprinse intre ora 13 si ora 19:0
+Detalii comanda:Order{orderId=150, clientId=153, date='2022-05-10T14:41:46.080993300'}
+Produsele comandate:Product{title='Cilantro-Tomato Salsa ', rating=3.75, calories=23, protein=1, fat=0, sodium=7, price=32}
+Produsele comandate:Product{title='The Original Three-Ingredient Rub ', rating=0.0, calories=23, protein=1, fat=1, sodium=6, price=47}
+Produsele comandate:Product{title='Arugula Salad with Heirloom Tomatoes and Red Onion ', rating=2.5, calories=24, protein=1, fat=0, sodium=12, price=21}
